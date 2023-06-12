@@ -43,6 +43,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/unconsciousness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Unconsciousness"
@@ -70,6 +71,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/injury"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Injury"
@@ -97,6 +99,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/choking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choking"
@@ -146,6 +149,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/fire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fire"
@@ -173,6 +177,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/electric"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Electrical"
@@ -222,6 +227,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/assault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Assault"
@@ -249,6 +255,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/terrorist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Terorist attack"
@@ -296,6 +303,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/earthquake"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Earthquake"
@@ -322,6 +330,7 @@
 
         <!-- Subheading Text -->
         <TextView
+            android:id="@+id/tsunami"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tsunami"

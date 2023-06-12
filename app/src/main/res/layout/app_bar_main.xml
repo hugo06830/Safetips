@@ -11,15 +11,18 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.Safetips.AppBarOverlay">
+        android:theme="@style/Theme.Safetips.AppBarOverlay"
+        android:visibility="visible"
+        tools:visibility="visible">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.Safetips.PopupOverlay" />
-
+            android:visibility="visible"
+            app:popupTheme="@style/Theme.Safetips.PopupOverlay"
+            tools:visibility="visible" />
     </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
