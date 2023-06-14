@@ -14,6 +14,23 @@
     <string name="during_an_emergency_situation_remember_these_three_essential_steps_secure_the_place_ensure_safety_by_preventing_further_incidents_or_harm_it_may_includes_shutting_off_power_sources_or_evacuating_the_area_alert_authorities_call_the_appropriate_emergency_phone_number_to_inform_and_seek_professional_assistance_provide_your_name_your_location_and_a_detailed_description_of_what_is_happening_act_responsibly_follow_emergency_protocols_provide_aid_if_possible_or_evacuate_calmly">During an emergency situation, remember these three essential steps: Secure the Place: Ensure safety by preventing further incidents or harm. It may includes shutting off power sources or evacuating the area Alert Authorities: Call the appropriate emergency phone number to inform and seek professional assistance. Provide your name your location and a detailed description of what is happening. Act Responsibly: Follow emergency protocols, provide aid if possible, or evacuate calmly.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="secure_section_content_unconsciouss">Assess the environment for any immediate danger. Look out for traffics, fire or falling objects. Before Alerting the emergency services ensure that you\'re safe</string>
+    <string name="alert_section_content_unconsciouss">Dial the number of the emergency services which is the 112, communicate your name and your location follow their instruction and Do not hang up until they ask you to.  </string>
+    <string name="act_section_content_unconsciouss">First, loosen the victim\'s collar, belt, or tie. Place one hand on the victim\'s forehead and gently tilt their head. At the same time,position the fingertips of your other hand under the tip of the victim\'s chin and lift it to free the tongue from the back of the throat and clear the airway. Do not apply pressure to the soft area under the chin to avoid obstructing breathing.Check the victim\'s breathing: \nEnsure that the chest rises and falls regularly. \nListen for breathing sounds by bringing your ear close to their mouth.\nAttempt to feel their breath by placing your cheek near their mouth for 10 seconds. </string>
+    <string name="unc_act_1">1. loosen the victim\'s collar, belt, or tie.</string>
+    <string name="unc_act2">2. Place one hand on the victim\'s forehead and gently tilt their head. At the same time, position the fingertips of your other hand under the tip of the victim\'s chin and lift it to free the tongue from the back of the throat and clear the airway.</string>
+    <string name="unc_act3">3. Check the victim\'s breathing:\n\n   a. Ensure that the chest rises and falls regularly.\n\n   b. Listen for breathing sounds by bringing your ear close to their mouth.\n\n   c. Attempt to feel their breath by placing your cheek near their mouth for 10 seconds.</string>
+    <string name="unc_act4">4. If the victim is breathing, place the person on the side in the recovery position</string>
+    <string name="unc_act5">5. If the person is not breathing perform cardiac massage by following the next steps</string>
+    <string name="unc_act5_1">5.1 Place the heel of one hand on the center of the person\'s chest, between the nipples.</string>
+    <string name="unc_act5_2">5.2 Place your other hand on top of the first hand, interlocking your fingers.</string>
+    <string name="unc_act5_3">5.3 Position yourself directly above the person\'s chest, with your shoulders aligned vertically above your hands.</string>
+    <string name="unc_act5_4">5.4 Push hard and fast, using your body weight, to compress the chest at least 2 inches (5 centimeters) deep.</string>
+    <string name="unc_act5_5">5.6 Allow the chest to fully recoil between compressions.</string>
+    <string name="unc_act5_6">5.7 Perform chest compressions at a rate of 100 to 120 compressions per minute. (aim for 2 per second)</string>
+    <string name="unc_act5_7">5.8 Continue performing uninterrupted chest compressions until help arrives or until an automated external defibrillator (AED) is available.</string>
+    <string name="unc_act5_8">5.9 If an AED is nearby, follow its instructions for use..</string>
+
 </resources>
 
 
