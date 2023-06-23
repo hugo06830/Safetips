@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,83 +37,67 @@ import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
-    private List<String> itemList;
-    private SearchBarAdapter itemAdapter;
-    private RecyclerView recyclerView;
-    private SearchView searchView;
+    public ArrayList<Emergency> emergencyArrayList = new ArrayList<Emergency>();
 
-    private String query = "";
-
-
-
-    private  View.OnClickListener textViewClickListener = v -> {
-        int textViewId = v.getId();
-
-        // Perform the action based on the clicked TextView
-        if (textViewId == R.id.unconsciousness) {
-            openFragment(new Unconscioussness());
-        } else if (textViewId == R.id.injury) {
-            openFragment(new injuryFragment());
-        } else if (textViewId == R.id.choking) {
-            openFragment(new chokingFragment());
-        } else if (textViewId == R.id.fire) {
-            openFragment(new fireFragment());
-        } else if (textViewId == R.id.electric) {
-            openFragment(new electricFragment());
-        } else if (textViewId == R.id.assault) {
-            openFragment(new assaultFragment());
-        } else if (textViewId == R.id.terrorist) {
-            openFragment(new terroristFragment());
-        } else if (textViewId == R.id.earthquake) {
-            openFragment(new earthquakeFragment());
-        } else if (textViewId == R.id.tsunami) {
-            openFragment(new tsunamiFragment());
-        }
-    };
-
+    private ListView listView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
 
-        itemList = new ArrayList<>();
-        itemList.add("unconsciousness");
-        itemList.add("injury");
-        itemList.add("choking");
-        itemList.add("fire");
-        itemList.add("electric");
-        itemList.add("assault");
-        itemList.add("terrorist");
-        itemList.add("earthquake");
-        itemList.add("tsunami");
+        setupData();
+        setupList(rootView);
+        setUpOnClickListener();
 
-        recyclerView = rootView.findViewById(R.id.city_name_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        itemAdapter = new SearchBarAdapter(itemList, query);
-        itemAdapter.setHasStableIds(true);
-        recyclerView.setAdapter(itemAdapter);
-
-        // Initialize the SearchView
-        searchView = rootView.findViewById(R.id.search_bar);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                query = newText;
-                itemAdapter.getFilter().filter(newText);
-                return true;
-            }
-        });
 
 
 
 
         return rootView;
+    }
+
+    private void setUpOnClickListener() {
+
+    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Emergency selectedEmergency = (Emergency) listView.getItemAtPosition(i);
+            Fragment selected = getClickedFragment(selectedEmergency.getName());
+            openFragment(selected);
+        }
+    });
+    }
+
+    private void setupList(View rootView) {
+        listView = rootView.findViewById(R.id.list_emergency);
+        EmergencyAdapter adapter = new EmergencyAdapter(getActivity(), 0, emergencyArrayList);
+        listView.setAdapter(adapter);
+
+    }
+
+    private void setupData() {
+        //Create Emergencies
+        Emergency unconsciousness = new Emergency("Unconsciousness", R.mipmap.unconsciousness_round );
+        Emergency injury = new Emergency("Injury", R.mipmap.injury_round );
+        Emergency choking = new Emergency("Choking", R.mipmap.terrorist_round );
+        Emergency fire = new Emergency("Fire", R.mipmap.fire_round);
+        Emergency electrical = new Emergency("Electrical", R.mipmap.electric_round );
+        Emergency assault  = new Emergency("Assault", R.mipmap.assault_round );
+        Emergency terrorist  = new Emergency("terrorist", R.mipmap.terroristt_round);
+        Emergency earthquake  = new Emergency("Earthquake", R.mipmap.earthquake_round );
+        Emergency tsunami  = new Emergency("Tsunami", R.mipmap.tsunami_round );
+
+        //Adding them to the list
+        emergencyArrayList.add(unconsciousness);
+        emergencyArrayList.add(injury);
+        emergencyArrayList.add(choking);
+        emergencyArrayList.add(fire);
+        emergencyArrayList.add(electrical);
+        emergencyArrayList.add(assault);
+        emergencyArrayList.add(terrorist);
+        emergencyArrayList.add(earthquake);
+        emergencyArrayList.add(tsunami);
     }
 
     private void openFragment(Fragment fragment) {
@@ -120,6 +106,32 @@ public class GalleryFragment extends Fragment {
         fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    private Fragment getClickedFragment(String emergencyName){
+
+        switch (emergencyName.toLowerCase()){
+            case "unconsciousness":
+                return new Unconscioussness();
+            case "injury":
+                return new injuryFragment();
+            case "choking":
+                return new chokingFragment();
+            case "fire":
+                return new fireFragment();
+            case "electrical":
+                return new electricFragment();
+            case "assault":
+                return new assaultFragment();
+            case "terrorist":
+                return new terroristFragment();
+            case "earthquake":
+                return new earthquakeFragment();
+            case "tsunami":
+                return new tsunamiFragment();
+        }
+
+      return null;
     }
 
 

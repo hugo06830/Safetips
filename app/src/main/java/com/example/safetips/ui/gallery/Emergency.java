@@ -3,12 +3,6 @@ package com.example.safetips.ui.gallery;
 public class Emergency{
 
 
-    private String name;
-
-    public Emergency(String name){
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }
@@ -17,6 +11,20 @@ public class Emergency{
         this.name = name;
     }
 
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    private String name;
+    private int image;
 
 
+    public Emergency(String name, int image) {
+        this.name = name;
+        this.image = image;
+    }
 }
