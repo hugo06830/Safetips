@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
 
 
-
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -41,20 +41,46 @@ public class GalleryFragment extends Fragment {
 
     private ListView listView;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
-
         setupData();
         setupList(rootView);
         setUpOnClickListener();
-
-
-
-
+        setUpSearchView(rootView);
 
         return rootView;
+    }
+
+    private void setUpSearchView(View rootView) {
+        SearchView searchView = rootView.findViewById(R.id.search_bar);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Emergency> filteredEmergencies = new ArrayList<Emergency>();
+
+                for(Emergency emergency: emergencyArrayList){
+                    if(emergency.getName().toLowerCase().contains(s.toLowerCase())){
+                        filteredEmergencies.add(emergency);
+                        System.out.println(emergency.getName());
+                        System.out.println("Find one matching element");
+                    }
+                }
+
+                EmergencyAdapter adapter = new EmergencyAdapter(getActivity(), 0, filteredEmergencies);
+                listView.setAdapter(adapter);
+                return false;
+            }
+        });
+
     }
 
     private void setUpOnClickListener() {
@@ -134,9 +160,9 @@ public class GalleryFragment extends Fragment {
       return null;
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        emergencyArrayList.clear();
     }
 }

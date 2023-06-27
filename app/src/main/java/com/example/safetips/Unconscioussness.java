@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -29,6 +30,17 @@ public class Unconscioussness extends Fragment {
         Toolbar toolbar = toolbarView.findViewById(R.id.toolbar);
         toolbar.setVisibility(View.GONE);
 
-        return inflater.inflate(R.layout.fragment_unconscioussness, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_unconscioussness, container, false);
+        Button returnButton = rootView.findViewById(R.id.return_button);
+
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
+
+
+        return rootView;
     }
 }

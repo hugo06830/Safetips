@@ -10,6 +10,7 @@
         android:layout_marginTop="20dp">
 
         <!-- Secure Section -->
+
         <LinearLayout
             android:id="@+id/secureSection"
             android:layout_width="match_parent"
@@ -20,6 +21,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:src="@mipmap/secure" />
 
             <TextView
@@ -59,6 +61,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:src="@mipmap/alert" />
 
             <TextView
@@ -98,6 +101,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:src="@mipmap/act" />
 
             <TextView
@@ -327,6 +331,15 @@
                         android:text="@string/unc_act5_8"
                         android:textColor="#000000" />
 
+                    <Button
+                        android:id="@+id/return_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Return" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -335,14 +348,6 @@
 
 
         <!-- Return Button -->
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="-2dp"
-            android:text="Return" />
 
     </RelativeLayout>
 </ScrollView>
