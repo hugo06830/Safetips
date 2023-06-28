@@ -7,17 +7,19 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
+
+
+
 
 import androidx.annotation.NonNull;
 
 
-import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
+
 
 import com.example.safetips.R;
 import com.example.safetips.Unconscioussness;
@@ -35,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class GalleryFragment extends Fragment {
+public class GalleryFragment extends Fragment  {
 
     public ArrayList<Emergency> emergencyArrayList = new ArrayList<Emergency>();
 
@@ -44,7 +46,7 @@ public class GalleryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
+        //Set up the view
         View rootView = inflater.inflate(R.layout.fragment_gallery, container, false);
         setupData();
         setupList(rootView);
@@ -53,6 +55,8 @@ public class GalleryFragment extends Fragment {
 
         return rootView;
     }
+
+
 
     private void setUpSearchView(View rootView) {
         SearchView searchView = rootView.findViewById(R.id.search_bar);
@@ -65,6 +69,7 @@ public class GalleryFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
+                //Query the list of emergencies to filter
                 ArrayList<Emergency> filteredEmergencies = new ArrayList<Emergency>();
 
                 for(Emergency emergency: emergencyArrayList){
@@ -84,7 +89,7 @@ public class GalleryFragment extends Fragment {
     }
 
     private void setUpOnClickListener() {
-
+    //Set click listener to the selected items in the list
     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -96,6 +101,7 @@ public class GalleryFragment extends Fragment {
     }
 
     private void setupList(View rootView) {
+        //Find list and add adapter to it
         listView = rootView.findViewById(R.id.list_emergency);
         EmergencyAdapter adapter = new EmergencyAdapter(getActivity(), 0, emergencyArrayList);
         listView.setAdapter(adapter);
@@ -103,6 +109,7 @@ public class GalleryFragment extends Fragment {
     }
 
     private void setupData() {
+
         //Create Emergencies
         Emergency unconsciousness = new Emergency("Unconsciousness", R.mipmap.unconsciousness_round );
         Emergency injury = new Emergency("Injury", R.mipmap.injury_round );
@@ -126,7 +133,9 @@ public class GalleryFragment extends Fragment {
         emergencyArrayList.add(tsunami);
     }
 
+
     private void openFragment(Fragment fragment) {
+        //Opens the corresponding frament
         FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment_content_main, fragment);
@@ -162,7 +171,10 @@ public class GalleryFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        //Reset list on destroy
         super.onDestroyView();
         emergencyArrayList.clear();
     }
+
+
 }

@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.safetips.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Map"
         tools:layout="@layout/fragment_slideshow" />
 
 </navigation>
